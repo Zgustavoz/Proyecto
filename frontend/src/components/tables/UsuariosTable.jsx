@@ -10,16 +10,16 @@ function UsuariosTable() {
   useEffect(() => {
     const fetchUsuarios = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/usuarios'); 
+        const response = await axios.get('http://localhost:3001/api/usuarios');
         setUsuarios(response.data);
       } catch (error) {
-        console.error('Error detallado:', error.response?.data || error.message);
-        setError(`Error al cargar usuarios: ${error.response?.data?.error || error.message}`);     
+        console.error('Error detallado:', error);
+        setError(`Error al cargar usuarios: ${error.response?.data?.error || error.message}`);
       } finally {
         setLoading(false);
       }
     };
-  
+
     fetchUsuarios();
   }, []);
 

@@ -1,15 +1,20 @@
-import {getConnection,mssql} from './src/dataBase/connection.js';
-import usuarios_r from './src/routes/usuarios_r.js';
+import express from 'express';
+import cors from 'cors';
+import { config } from 'dotenv';
+import usuariosRoutes from './src/routes/usuariosR.js';
 
-const getProducts = async () => {
-    try {
-        const pool =  await getConnection();
-        const result = await pool.request().query('SELECT * FROM usuario');
-        console.log(result);
-        console.log('Empleados');
-    }catch (error) {
-        console.error(error);
-    }
-};
 
-getProducts();
+config();
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+app.use(cors());
+app.use(express.json());
+
+//rutas
+app.use('/api/usuarios',usuariosRoutes);
+
+//iniciar servidor
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});
