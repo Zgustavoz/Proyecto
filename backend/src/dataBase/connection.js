@@ -1,9 +1,5 @@
-//importar solo paquetes necesarios
 import mssql from 'mssql';
-// import express from 'express';
-// import cors from 'cors';
 import { config } from 'dotenv';
-// import router from './../routes/usuariosR';
 
 config();
 
@@ -17,7 +13,7 @@ const connectionSettings = {
     trustServerCertificate: true,
   }
 };
-// Crear una instancia de Express
+
 //conexion a la base de datos
 export async function getConnection() {
   try {

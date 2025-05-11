@@ -1,7 +1,7 @@
-// import { Router } from 'express';
+
 import { getConnection } from '../dataBase/connection.js';
 import express from 'express';
-// import cors from 'cors';
+
 
 const router = express.Router();
 
